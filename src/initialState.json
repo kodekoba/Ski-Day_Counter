@@ -19,7 +19,7 @@
             "backcountry": true
         }
     ],
-    "goals": 10,
+    "goal": 10,
     "errors": [],
     "resortNames": {
         "fetching": false,
