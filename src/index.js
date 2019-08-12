@@ -1,21 +1,31 @@
 import C from './constants'
-import { errors } from './store/reducers.js'
+import { allSkiDays } from './store/reducers.js'
 
 const state = [
-    'user not authorized ',
-    'server feed not found'
+    {
+        "resort": "Kirkwood",
+        "date": "2019-12-15",
+        "powder": true,
+        "backcountry": false
+    },
+    {
+        "resort": "Boreal",
+        "date": "2019-12-16",
+        "powder": false,
+        "backcountry": false
+    }
 ]
 
 const action = {
-    type: C.CLEAR_ERROR,
-    payload: 0 //index of error to be removed
+    type: C.REMOVE_DAY,
+    payload: "2016-12-15"
 }
 
-const nextState = errors(state, action)
+const nextState = allSkiDays(state, action)
 
 console.log(`
 
-    initial state: ${state}
+    initial state: ${JSON.stringify(state)}
     action: ${JSON.stringify(action)}
     next state: ${JSON.stringify(nextState)}
 
