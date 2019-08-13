@@ -46,3 +46,7 @@ export const allSkiDays = (state=[], action) => {
             return state
     }
 }
+
+export const fetching = (state=false, action) => {
+    return state
+}

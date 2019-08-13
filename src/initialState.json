@@ -7,7 +7,7 @@
             "backcountry": false
         },
         {
-            "resort": "Squaw Valler",
+            "resort": "Squaw Valley",
             "date": "2016-12-8",
             "powder": false,
             "backcountry": false
@@ -23,6 +23,6 @@
     "errors": [],
     "resortNames": {
         "fetching": false,
-        "suggestions": ["SquawValley", "Snowbird", "Stowe", "Steamboat"]
+        "suggestions": ["Squaw Valley", "Snowbird", "Stowe", "Steamboat"]
     }
 }
