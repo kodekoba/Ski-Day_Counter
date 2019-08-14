@@ -1,10 +1,11 @@
 import C from '../constants'
+import { combineReducers } from 'redux'
 
-export const goal = (state=10, action) => { // remove braces for brevity?
+export const goal = (state=10, action) =>  // no braces
     (action.type === C.SET_GOAL) ? parseInt(action.payload) : state // efficient ternary statement
-}
 
-export const skiDay = (state=null, action) => // braces make this break when called in allSkiDays
+
+export const skiDay = (state=null, action) =>
     (action.type === C.ADD_DAY) ? action.payload : state
 
 export const errors = (state=[], action) => {
@@ -48,5 +49,44 @@ export const allSkiDays = (state=[], action) => {
 }
 
 export const fetching = (state=false, action) => {
-    return state
+    
+    switch(action.type) {
+
+        case C.FETCH_RESORT_NAMES :
+            return true
+
+        case C.CANCEL_FETCHING :
+            return false
+
+        case C.CHANGE_SUGGESTIONS :
+            return false
+
+        default:
+            return state
+    }
 }
+
+export const suggestions = (state=[], action) => {
+
+    switch(action.type) {
+
+        case C.CLEAR_SUGGESTIONS :
+            return []
+
+        case C.CHANGE_SUGGESTIONS : 
+            return action.payload
+
+        default :
+            return state
+    }
+}
+
+export default combineReducers({    // mirrors out initialState.json
+    allSkiDays,
+    goal,
+    errors,
+    resortNames: combineReducers({
+        fetching,
+        suggestions
+    })
+})
